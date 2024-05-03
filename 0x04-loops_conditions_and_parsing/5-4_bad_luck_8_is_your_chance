@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times, but for the 4th iteration,
 #displays "bad luck" for the 8th iteration, displays "good luck" for the other iterations
-i=1
+i=0
 while [ $i -lt 10 ]; do
     if [ $i -eq 3 ]; then
         echo "bad luck"
