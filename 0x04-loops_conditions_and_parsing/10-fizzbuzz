@@ -3,16 +3,16 @@
 # function that prints numbers from 1 to 100
 # in fizzbuzz format
 for i in {1..100}
-do
+    do
     if ((i % 15 == 0))
     then
         echo "FizzBuzz"
     elif ((i % 5 == 0))
     then
-        echo "Fizz"
-    elif ((i % 3 == 0))
-    then
         echo "Buzz"
+    elif (( i % 3 == 0))
+    then
+        echo "Fizz"
     else
         echo "$i"
     fi
