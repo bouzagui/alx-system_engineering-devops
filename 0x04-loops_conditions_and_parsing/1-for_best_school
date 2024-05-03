@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# function to be displays string Best School 10 times.
+# function to be displays string Best School 10 times with for loop.
 
-for _ in {1..5}
+for _ in {1..10}
 do
     echo "Best School"
 done
