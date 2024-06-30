@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# change to config file
+
 file ('/etc/ssh/ssh_config:
   ensure  => 'present',
 )
