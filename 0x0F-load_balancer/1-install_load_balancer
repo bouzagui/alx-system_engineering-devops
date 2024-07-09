@@ -1,7 +1,21 @@
 #!/usr/bin/env bash
-# configure it send traffic to both servers
+
+# Function to check if haproxy is installed
+is_installed() {
+    dpkg -l | grep -qw "$1"
+}
+
+# Update package list
 sudo apt-get -y update
-sudo apt-get install -y haproxy
+
+# Check if haproxy is installed; if not, install it
+if ! is_installed "haproxy"; then
+    sudo apt-get install -y haproxy
+else
+    echo "haproxy is already installed."
+fi
+
+# Configure haproxy
 echo "
     frontend cfg_front
         bind *:80
@@ -9,7 +23,9 @@ echo "
         default_backend cfg_back
     backend cfg_back
         balance roundrobin
-        server 374415-web-01 52.91.146.244:80 check
-        server 374415-web-02 54.237.94.137:80 check
-" >> /etc/haproxy/haproxy.cfg
+        server 374415-web-01 54.83.139.226:80 check
+        server 374415-web-02 35.153.16.228:80 check
+" | sudo tee /etc/haproxy/haproxy.cfg
+
+# Restart haproxy service
 sudo service haproxy restart
