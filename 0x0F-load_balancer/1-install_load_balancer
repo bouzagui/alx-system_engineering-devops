@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Function to check if haproxy is installed
 is_installed() {
     dpkg -l | grep -qw "$1"
