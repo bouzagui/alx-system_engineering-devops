@@ -1,1 +1,3 @@
-bash: /0-nginx_likes_port_80: No such file or directory
+./0-nginx_likes_port_80: line 3: /etc/nginx/sites-enabled/default: Permission denied
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.

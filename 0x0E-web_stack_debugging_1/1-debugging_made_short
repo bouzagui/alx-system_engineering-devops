@@ -1,1 +1,5 @@
-#!/usr/bin/python3
+#!/usr/bin/env bash
+# the Nginx configuration to ensure it listens on port 80 for IPv4.
+sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
+sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/' /etc/nginx/sites-available/default
+service nginx restart
