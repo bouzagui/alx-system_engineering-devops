@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Update package list and install Nginx
+cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
+sudo service nginx restart
