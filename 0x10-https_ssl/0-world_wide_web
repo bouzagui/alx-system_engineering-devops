@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# the subdomain www points to your load-balancer IP (lb-01)
+
+lookup() {
+    dig $1 | awk -v subdomain="$2" '/ANSWER SECTION:/ { getline; print "The subdomain " subdomain " is a " $4 " record and points to " $5 ""}'
+}
+
+if (($# == 2)); then
+    lookup "$2.$1" "$2"
+else
+    lookup "www.$1" "www"
+    lookup "lb-01.$1" "lb-01"
+    lookup "web-01.$1" "web-01"
+    lookup "web-02.$1" "web-02"
+fi
