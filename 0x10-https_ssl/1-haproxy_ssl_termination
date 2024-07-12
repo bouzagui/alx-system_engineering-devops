@@ -43,7 +43,7 @@ frontend cfg_front
     default_backend cfg_back
 
 frontend clickviral-frontend-https
-    bind *:443 ssl crt /etc/haproxy/certs/clickviral.tech.pem
+    bind *:443 ssl crt /etc/haproxy/certs/www.bouzagui.tech.pem
     http-request set-header X-Forwarded-Proto https
     default_backend cfg_back
 
