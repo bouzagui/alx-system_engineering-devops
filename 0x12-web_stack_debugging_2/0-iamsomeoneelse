@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-sudo nano /etc/ufw/before.rules
+# print another user.
+user=$1
+sudo -u $user whoami
