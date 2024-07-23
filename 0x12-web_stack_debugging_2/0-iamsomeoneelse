@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo nano /etc/ufw/before.rules
