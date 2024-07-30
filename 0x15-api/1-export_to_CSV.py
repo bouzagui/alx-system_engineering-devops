@@ -12,9 +12,7 @@ def main():
     url_user_todos = req.get(f"{url}/users/{id_employee}/todos").json()
 
     username = url_user.get("username")
-    total = len(url_user_todos)
     filename = f"{id_employee}.csv"
-    count = 0
     with open(filename, 'w', encoding="utf-8") as file:
         for todos in url_user_todos:
             data = f'"{id_employee}","{username}","{todos.get("completed")}",'
