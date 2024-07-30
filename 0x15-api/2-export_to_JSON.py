@@ -14,17 +14,18 @@ def main():
     filename = f"{id_employee}.json"
     username = url_user.get("username")
     new_list = []
+    my_dict = dict()
 
     with open(filename, 'w', encoding="utf-8") as file:
         for item in url_user_todos:
-            data = {
-                "task": item.get("title"),
-                "completed": item.get("completed"),
-                "username": username,
-            }
-            new_list.append(data)
-        output = {f"{id_employee}": new_list}
-        json.dump(output, file)
+            new_one = {
+                "task": item['title'],
+                "completed": item['completed'],
+                "username": username}
+            new_list.append(new_one)
+        my_dict['{}'.format(id_employee)] = new_list
+        my_content = json.dumps(my_dict)
+        file.write(my_content + "\n")
 
 
 if __name__ == "__main__":
