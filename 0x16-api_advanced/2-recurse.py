@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 import requests
 
+
 def recurse(subreddit, hot_list=[], after=None):
-    """ Recursive function that returns a list of titles of all hot articles for a given subreddit """
+    """ Recursive function that returns a list of titles
+        of all hot articles for a given subreddit """
     url = f'https://www.reddit.com/r/{subreddit}/hot.json'
     headers = {
         'User-Agent': 'custom-user-agent'
@@ -11,8 +13,9 @@ def recurse(subreddit, hot_list=[], after=None):
         'limit': 100,
         'after': after
     }
-    res = requests.get(url, headers=headers, params=params, allow_redirects=False)
-    
+    res = requests.get(url, headers=headers, params=params,
+                        allow_redirects=False)
+
     if res.status_code != 200:
         return None
 
